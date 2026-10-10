@@ -36,6 +36,8 @@ no_encontrados = []
 
 for clip in clips_sin_usar:
     clip = clip.strip()
+    if not clip:
+        continue
 
     nombre_archivo = clip + ".mp4"
 
@@ -58,7 +60,7 @@ for clip in clips_sin_usar:
         texto_no_encontrados = "\n".join(no_encontrados)
     else:
         texto_no_encontrados = "Ninguno"
-        
+
     if copiados:
         texto_copiados = "\n".join(copiados)
     else:texto_copiados = "Ninguno"
