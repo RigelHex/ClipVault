@@ -33,12 +33,19 @@ os.makedirs(carpeta_destino, exist_ok=True)
 
 copiados = []
 no_encontrados = []
+procesados = []
+
 
 for clip in clips_sin_usar:
     clip = clip.strip()
     if not clip:
         continue
 
+    if clip in procesados:
+        continue
+
+    procesados.append(clip)
+    
     nombre_archivo = clip + ".mp4"
 
     if nombre_archivo in archivos:
