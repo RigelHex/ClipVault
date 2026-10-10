@@ -53,12 +53,23 @@ for clip in clips_sin_usar:
 
         print(nombre_archivo, "NO EXISTE")
 
-print()
-print("Archivos copiados:")
-print(copiados)
 
-print()
-print("Archivos no encontrado:")
-print(no_encontrados)
+    if no_encontrados:
+        texto_no_encontrados = "\n".join(no_encontrados)
+    else:
+        texto_no_encontrados = "Ninguno"
+        
+    if copiados:
+        texto_copiados = "\n".join(copiados)
+    else:texto_copiados = "Ninguno"
+
+
+messagebox.showinfo(
+    "ClipVault",
+    "Archivos copiados:\n"
+    + texto_copiados
+    + "\n\nArchivos no encontrados:\n"
+    + texto_no_encontrados
+)
 
 os.startfile(carpeta_destino)
