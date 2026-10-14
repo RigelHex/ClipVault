@@ -13,10 +13,19 @@ ventana.withdraw()
 # SELECCIÓN DE CARPETA
 # -------------------------
 
-carpeta_clips = filedialog.askdirectory(
-    title="Selecciona la carpeta VIDEO"
-)
+def seleccionar_carpeta():
 
+    carpeta = filedialog.askdirectory(
+        title="Selecciona la carpeta VIDEO",
+    )
+    if not carpeta:
+        print("No se seleccionó ninguna carpeta. Saliendo del programa.")
+        exit()
+    return carpeta
+carpeta_clips = seleccionar_carpeta()
+print("carpeta_clips")
+
+    
 # Detiene el programa si el usuario cancela la selección
 
 if not carpeta_clips:
